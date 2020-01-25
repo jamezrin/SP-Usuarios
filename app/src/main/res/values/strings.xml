@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ProyectoUsuarios</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="crear_cuenta">Crear una cuenta</string>
+    <string name="nombre_usuario">Nombre de user</string>
+    <string name="contrasena">Contrasena</string>
+    <string name="usuario_defecto">Usuario por defecto: %s (Contraseña %s)</string>
+    <string name="accion_iniciar_sesion">Iniciar sesión</string>
+    <string name="accion_crear_cuenta">Registrar user</string>
+    <string name="error_no_usuario">No se ha podido encontrar ningún user con esos datos</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="dni">DNI</string>
+    <string name="tipo_usuario">Tipo Usuario</string>
+</resources>
