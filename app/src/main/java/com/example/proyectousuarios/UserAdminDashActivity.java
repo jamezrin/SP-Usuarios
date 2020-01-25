@@ -60,6 +60,12 @@ public class UserAdminDashActivity extends AppCompatActivity {
                 if (selectedUser != null) {
                     selectedUser.setAdmin(true);
                     Utils.storeUser(preferences, selectedUser);
+
+                    Toast.makeText(
+                            v.getContext(),
+                            R.string.resultado_ascenso,
+                            Toast.LENGTH_SHORT
+                    ).show();
                 } else {
                     Toast.makeText(
                             v.getContext(),
@@ -79,6 +85,12 @@ public class UserAdminDashActivity extends AppCompatActivity {
                 if (selectedUser != null) {
                     selectedUser.setAdmin(false);
                     Utils.storeUser(preferences, selectedUser);
+
+                    Toast.makeText(
+                            v.getContext(),
+                            R.string.resultado_descenso,
+                            Toast.LENGTH_SHORT
+                    ).show();
                 } else {
                     Toast.makeText(
                             v.getContext(),

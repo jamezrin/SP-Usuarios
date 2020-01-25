@@ -28,4 +28,6 @@
     <string name="accion_admin_quitar_admin">Quitar admin</string>
     <string name="accion_admin_modificar">Modificar datos</string>
     <string name="administracion">Administración</string>
+    <string name="resultado_descenso">Usuario descendido a usuario regular</string>
+    <string name="resultado_ascenso">Usuario ascendido a usuario administrador</string>
 </resources>
