@@ -6,4 +6,89 @@
     android:layout_height="match_parent"
     tools:context=".UserAdminDashActivity">
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/administracion"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/accion_quitar_admin"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/accion_admin_quitar_admin"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/accion_borrar_cuenta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/accion_hacer_admin"
+        app:layout_constraintTop_toBottomOf="@+id/lista_usuarios" />
+
+    <Button
+        android:id="@+id/accion_borrar_cuenta"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/borrar_cuenta"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/accion_modificar_datos"
+        app:layout_constraintTop_toBottomOf="@+id/accion_quitar_admin" />
+
+    <Button
+        android:id="@+id/accion_modificar_datos"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/accion_admin_modificar"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/accion_borrar_cuenta"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accion_hacer_admin" />
+
+    <Button
+        android:id="@+id/accion_hacer_admin"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/accion_admin_hacer_admin"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/accion_modificar_datos"
+        app:layout_constraintEnd_toStartOf="@+id/accion_quitar_admin"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lista_usuarios" />
+
+    <Spinner
+        android:id="@+id/lista_usuarios"
+        android:layout_width="220dp"
+        android:layout_height="37dp"
+        app:layout_constraintBottom_toTopOf="@+id/accion_quitar_admin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="315dp"
+        android:layout_height="207dp"
+        app:layout_constraintBottom_toTopOf="@+id/lista_usuarios"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:srcCompat="@drawable/ic_undraw_performance_overview_p9bm" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

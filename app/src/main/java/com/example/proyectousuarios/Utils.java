@@ -1,6 +1,7 @@
 package com.example.proyectousuarios;
 
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -8,22 +9,25 @@ import java.util.List;
 
 public class Utils {
     public static boolean checkTextInput(TextView... views) {
+        boolean result = true;
+
         for (TextView view : views) {
             if (view.length() == 0) {
                 view.setError("Este campo es obligatorio");
-                return false;
+                result = false;
             }
         }
 
-        return true;
+        return result;
     }
 
     public static void createUser(SharedPreferences sharedPreferences, User user) {
-        int nextIdx = sharedPreferences.getInt("metadata#index", -1) + 1;
-        user.setId(nextIdx);
+        int currentIdx = sharedPreferences.getInt("metadata#index", 0);
+        user.setId(currentIdx);
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("metadata#index", nextIdx).apply();
+        editor.putInt("metadata#index", currentIdx + 1).apply();
+        editor.apply();
 
         storeUser(sharedPreferences, user);
     }
@@ -53,6 +57,10 @@ public class Utils {
     }
 
     public static User fetchUser(SharedPreferences sharedPreferences, int id) {
+        if (!sharedPreferences.contains("instance#" + id)) {
+            return null;
+        }
+
         return new User(
                 id,
                 sharedPreferences.getString("property#" + id + "#nick", "unknown"),
@@ -65,12 +73,11 @@ public class Utils {
     }
 
     public static User findUserByUsername(SharedPreferences sharedPreferences, String username) {
-        int currentIdx = sharedPreferences.getInt("metadata#index", -1);
+        int currentIdx = sharedPreferences.getInt("metadata#index", 0);
 
         for (int i = 0; i < currentIdx; i++) {
             User user = fetchUser(sharedPreferences, i);
-
-            if (user.getNick().equals(username)) {
+            if (user != null && user.getNick().equals(username)) {
                 return user;
             }
         }
@@ -79,12 +86,14 @@ public class Utils {
     }
 
     public static List<User> listUsers(SharedPreferences sharedPreferences) {
-        int currentIdx = sharedPreferences.getInt("metadata#index", -1);
+        int currentIdx = sharedPreferences.getInt("metadata#index", 0);
         List<User> users = new ArrayList<>();
 
         for (int i = 0; i < currentIdx; i++) {
             User user = fetchUser(sharedPreferences, i);
-            users.add(user);
+            if (user != null) {
+                users.add(user);
+            }
         }
 
         return users;

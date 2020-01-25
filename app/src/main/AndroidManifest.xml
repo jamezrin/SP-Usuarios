@@ -12,7 +12,7 @@
         <activity android:name=".UserAdminDashActivity"></activity>
         <activity android:name=".UserDashActivity" />
         <activity android:name=".UserRegisterActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".UserLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
