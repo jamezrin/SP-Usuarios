@@ -18,7 +18,7 @@ public class UserLoginActivity extends AppCompatActivity {
 
         User user = Utils.findUserByUsername(preferences, "admin");
 
-        if (user == null || !user.isAdmin()) {
+        if (user == null) {
             user = new User();
             user.setNick("admin");
             user.setContrasena("superpass");
@@ -36,6 +36,11 @@ public class UserLoginActivity extends AppCompatActivity {
                             user.getContrasena()),
                     Toast.LENGTH_SHORT
             ).show();
+        } else if (!user.isAdmin()) {
+            // puede darse el caso que el usuario administrador no sea un administrador
+            // en este caso le damos el permiso y guardamos el usuario
+            user.setAdmin(true);
+            Utils.storeUser(preferences, user);
         }
     }
 

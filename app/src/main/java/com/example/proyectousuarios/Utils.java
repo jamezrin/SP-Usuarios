@@ -8,11 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Utils {
+    /**
+     * Comprueba que todos los campos pasados tienen algún caracter
+     * Si alguno está vacio, lo marca con error y devuelve false
+     * @param views
+     * @return true si todos los campos están completos, false si no
+     */
     public static boolean checkTextInput(TextView... views) {
         boolean result = true;
 
         for (TextView view : views) {
-            if (view.length() == 0) {
+            if (view.getText().toString().trim().equals("")) {
                 view.setError("Este campo es obligatorio");
                 result = false;
             }
@@ -21,6 +27,11 @@ public class Utils {
         return result;
     }
 
+    /**
+     * Parecido a storeUser pero incrementa el indice y pone un nuevo id al usuario
+     * @param sharedPreferences
+     * @param user
+     */
     public static void createUser(SharedPreferences sharedPreferences, User user) {
         int currentIdx = sharedPreferences.getInt("metadata#index", 0);
         user.setId(currentIdx);
@@ -32,6 +43,11 @@ public class Utils {
         storeUser(sharedPreferences, user);
     }
 
+    /**
+     * Actualiza los datos de un usuario
+     * @param sharedPreferences
+     * @param user
+     */
     public static void storeUser(SharedPreferences sharedPreferences, User user) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("instance#" + user.getId(), 0); // 0 es OK, 1 es GONE
@@ -44,6 +60,11 @@ public class Utils {
         editor.apply();
     }
 
+    /**
+     * Elimina los datos de un usuario
+     * @param sharedPreferences
+     * @param user
+     */
     public static void deleteUser(SharedPreferences sharedPreferences, User user) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.remove("instance#" + user.getId());
@@ -56,6 +77,12 @@ public class Utils {
         editor.apply();
     }
 
+    /**
+     * Busca al usuario con el id pasado
+     * @param sharedPreferences
+     * @param id
+     * @return el usuario encontrado o null si no hay ningun usuario con ese id
+     */
     public static User fetchUser(SharedPreferences sharedPreferences, int id) {
         if (!sharedPreferences.contains("instance#" + id)) {
             return null;
@@ -72,6 +99,12 @@ public class Utils {
         );
     }
 
+    /**
+     * Busca al usuario por nombre de usuario
+     * @param sharedPreferences
+     * @param username
+     * @return el usuario encontrado o null si no hay ningun usuario con ese nombre de usuario
+     */
     public static User findUserByUsername(SharedPreferences sharedPreferences, String username) {
         int currentIdx = sharedPreferences.getInt("metadata#index", 0);
 
@@ -85,6 +118,11 @@ public class Utils {
         return null;
     }
 
+    /**
+     * Devuelve una lista de todos los usuarios guardados
+     * @param sharedPreferences
+     * @return la lista de usuarios
+     */
     public static List<User> listUsers(SharedPreferences sharedPreferences) {
         int currentIdx = sharedPreferences.getInt("metadata#index", 0);
         List<User> users = new ArrayList<>();
