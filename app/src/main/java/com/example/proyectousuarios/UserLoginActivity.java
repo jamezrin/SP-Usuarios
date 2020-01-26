@@ -18,7 +18,7 @@ public class UserLoginActivity extends AppCompatActivity {
 
         User user = Utils.findUserByUsername(preferences, "admin");
 
-        if (user == null) {
+        if (user == null || !user.isAdmin()) {
             user = new User();
             user.setNick("admin");
             user.setContrasena("superpass");

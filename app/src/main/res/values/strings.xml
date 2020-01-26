@@ -5,7 +5,7 @@
     <string name="dash">Tu usuario</string>
     <string name="nombre_usuario">Nombre de usuario</string>
     <string name="contrasena">Contrasena</string>
-    <string name="usuario_defecto">Usuario por defecto: %s (Contraseña %s)</string>
+    <string name="usuario_defecto">Usuario administrador por defecto: %s (Contraseña %s)</string>
 
     <string name="nombre">Nombre</string>
     <string name="apellidos">Apellidos</string>
