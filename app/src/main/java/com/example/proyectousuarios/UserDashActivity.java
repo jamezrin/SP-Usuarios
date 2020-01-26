@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class UserDashActivity extends AppCompatActivity {
@@ -38,12 +39,16 @@ public class UserDashActivity extends AppCompatActivity {
         final EditText campoApellidos = findViewById(R.id.campo_apellidos_dash);
         final EditText campoDni = findViewById(R.id.campo_dni_dash);
         final EditText campoContrasena = findViewById(R.id.campo_contrasena_dash);
+        final TextView campoTipo = findViewById(R.id.campo_tipo_dash);
 
         campoNick.setText(user.getNick());
         campoNombre.setText(user.getNombre());
         campoApellidos.setText(user.getApellidos());
         campoDni.setText(user.getDni());
         campoContrasena.setText(user.getContrasena());
+        campoTipo.setText(user.isAdmin()
+                ? R.string.admin_user
+                : R.string.regular_user);
 
         findViewById(R.id.boton_guardar_cambios_dash).setOnClickListener(new View.OnClickListener() {
             @Override

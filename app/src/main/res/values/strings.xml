@@ -6,6 +6,8 @@
     <string name="nombre_usuario">Nombre de usuario</string>
     <string name="contrasena">Contrasena</string>
     <string name="usuario_defecto">Usuario administrador por defecto: %s (Contraseña %s)</string>
+    <string name="regular_user">Regular</string>
+    <string name="admin_user">Administrador</string>
 
     <string name="nombre">Nombre</string>
     <string name="apellidos">Apellidos</string>
